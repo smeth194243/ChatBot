@@ -15,6 +15,11 @@ public class ChatbotController
 	
 	public void start()
 	{
+		String response = "talking to you";
 		
+		while(stupidBot.lengthChecker(response))
+		{
+			response = chatView.collectResponse("What shall we talk about today?");
+		}
 	}
 }

@@ -23,7 +23,7 @@ public class Chatbot
 	{
 		this.memesList = new ArrayList<String>();
 		this.politicalTopicList = new ArrayList<String>();
-		this.userName = new String(userName);
+		this.userName = userName;
 		this.content = new String("lojkasdlfkjhdsflk hg");
 	}
 	
@@ -104,6 +104,10 @@ public class Chatbot
 	{
 		return false;
 	}
+
+	
+	//GETTERS-----------------------------------------------------------------------------------
+	
 	
 	/**
 	 * Returns the username of this Chatbot instance.
@@ -111,7 +115,7 @@ public class Chatbot
 	 */
 	public String getUserName()
 	{
-		return null;
+		return userName;
 	}
 	
 	/**
@@ -120,7 +124,7 @@ public class Chatbot
 	 */
 	public String getContent()
 	{
-		return null;
+		return content;
 	}
 	
 	/**
@@ -140,6 +144,10 @@ public class Chatbot
 	{
 		return politicalTopicList;
 	}
+
+	
+	//SETTTERS---------------------------------------------------------------------------------
+	
 	
 	/**
 	 * Updates the content area for this Chatbot instance.
@@ -147,7 +155,22 @@ public class Chatbot
 	 */
 	public void setContent(String content)
 	{
-		
+		this.content = content;
+	}
+	
+	public void setMemesList(ArrayList<String> memesList)
+	{
+		this.memesList = memesList;
+	}
+	
+	public void setPoliticalTopicList(ArrayList<String> politicalTopicList)
+	{
+		this.politicalTopicList = politicalTopicList;
+	}
+	
+	public void setUserName(String userName)
+	{
+		this.userName = userName;
 	}
 }
 
