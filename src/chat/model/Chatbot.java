@@ -5,8 +5,8 @@ import java.util.ArrayList;
 /**
  * Base version of the 2015 Chatbot class. Only stub methods are provided. Students will complete methods as part
  * of the project.
- * @author Cody Henrichsen
- * @version 1.0 10/14/15
+ * @author Seth Morris
+ * @version 1.0 10/14/16
  */
 public class Chatbot
 {
@@ -21,12 +21,33 @@ public class Chatbot
 	 */
 	public Chatbot(String userName)
 	{
-		
+		this.memesList = new ArrayList<String>();
+		this.politicalTopicList = new ArrayList<String>();
+		this.userName = new String(userName);
+		this.content = new String("lojkasdlfkjhdsflk hg");
 	}
 	
 	private void buildMemesList()
 	{
-		
+		memesList.add("doge");
+        memesList.add("cute animals");
+        memesList.add("grumpy cat");
+        memesList.add("dat boi");
+        memesList.add("willy wonka");
+        memesList.add("harambe");
+        memesList.add("john cena");
+        memesList.add("pawn stars");
+        memesList.add("pepe");
+        memesList.add("ken bone");
+        memesList.add("bad luck brian");
+        memesList.add("michael phelps");
+        memesList.add("sponge bob");
+        memesList.add("pope");
+        memesList.add("arthur");
+        memesList.add("danny phantom");
+        memesList.add("boi");
+        memesList.add("battlefield 1");
+        memesList.add("icup");
 	}
 	
 	private void buildPoliticalTopicsList()
@@ -42,7 +63,14 @@ public class Chatbot
 	 */
 	public boolean lengthChecker(String currentInput)
 	{
-		return false;
+		boolean hasLength = false;
+		
+		if (currentInput != null && currentInput.length() > 0)
+		{
+			hasLength = true;
+		}
+		
+		return hasLength;
 	}
 	
 	/**
@@ -101,7 +129,7 @@ public class Chatbot
 	 */
 	public ArrayList<String> getMemesList()
 	{
-		return null;
+		return memesList;
 	}
 	
 	/**
@@ -110,7 +138,7 @@ public class Chatbot
 	 */
 	public ArrayList<String> getPoliticalTopicList()
 	{
-		return null;
+		return politicalTopicList;
 	}
 	
 	/**
