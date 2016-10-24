@@ -123,12 +123,14 @@ public class Chatbot
 		boolean hasPolitical = false;
 		
 		for (int index = 0; index < politicalTopicList.size(); index++)
-		if (currentInput != null && currentInput.equals(politicalTopicList.get(index)));
 		{
+			if (currentInput != null && currentInput.equals(politicalTopicList.get(index)));
+			{
 			hasPolitical = true;
+			}
 		}
 		return hasPolitical;
-	}
+	}	
 	
 	
 	/**
@@ -141,13 +143,16 @@ public class Chatbot
 		boolean hasMeme = false;
 		
 		for (int index = 0; index < memesList.size(); index++)
-		if (currentInput != null && currentInput.contains(memesList.get(index)));
 		{
+			if (currentInput != null && currentInput.contains(memesList.get(index)));
+			{
 			hasMeme = true;
+			}
+		
 		}
 		return hasMeme;
 	}
-
+	
 	
 	//GETTERS-----------------------------------------------------------------------------------
 	
