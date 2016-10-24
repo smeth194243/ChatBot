@@ -50,6 +50,7 @@ public class Chatbot
         memesList.add("boi");
         memesList.add("battlefield 1");
         memesList.add("icup");
+        //memesList.add("")
 	}
 	
 	private void buildPoliticalTopicsList()
@@ -102,7 +103,14 @@ public class Chatbot
 	 */
 	public boolean contentChecker(String currentInput)
 	{
-		return false;
+		boolean hasContent = false;
+		
+		if(currentInput != null && currentInput.contains(content))
+		{
+			hasContent = true;
+			
+		}
+		return hasContent;
 	}
 	
 	/**
@@ -112,8 +120,13 @@ public class Chatbot
 	 * @return Whether the String is contained in the ArrayList.
 	 */
 	public boolean politicalTopicChecker(String currentInput)
-	{
-		return false;
+	{	
+		boolean hasPolitical = false;
+		if (currentInput != null && currentInput.equals(politicalTopicList));
+		{
+			hasPolitical = true;
+		}
+		return hasPolitical;
 	}
 	
 	
