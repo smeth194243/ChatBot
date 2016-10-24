@@ -24,7 +24,9 @@ public class Chatbot
 		this.memesList = new ArrayList<String>();
 		this.politicalTopicList = new ArrayList<String>();
 		this.userName = userName;
-		this.content = new String("lojkasdlfkjhdsflk hg");
+		this.content = new String("Mountain Biking");
+		this.buildMemesList();
+		this.buildPoliticalTopicsList();
 	}
 	
 	private void buildMemesList()
@@ -52,7 +54,26 @@ public class Chatbot
 	
 	private void buildPoliticalTopicsList()
 	{
-		
+		politicalTopicList.add("McMullen");
+		politicalTopicList.add("Illuminati");
+		politicalTopicList.add("Lies");
+		politicalTopicList.add("Deleted emails");
+		politicalTopicList.add("Sexism");
+		politicalTopicList.add("The Great Wall");
+		politicalTopicList.add("Hilary Dabbing");
+		politicalTopicList.add("Foreign Policy");
+		politicalTopicList.add("Democrat");
+		politicalTopicList.add("Republican");
+		politicalTopicList.add("11/4/16");
+		politicalTopicList.add("11/8/16");
+		politicalTopicList.add("conservative");
+		politicalTopicList.add("Clinton");
+		politicalTopicList.add("Trump");
+		politicalTopicList.add("Kaine");
+		politicalTopicList.add("Pence");
+		politicalTopicList.add("Stein");
+		politicalTopicList.add("Johnson");
+		politicalTopicList.add("election");
 	}
 	
 	/**
