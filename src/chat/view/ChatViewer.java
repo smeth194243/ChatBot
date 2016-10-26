@@ -3,6 +3,11 @@ package chat.view;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 
+/**
+ * Popup display class for GUI interaction in the Chatbot project.
+ * @author Seth Morris
+ * @version 1.3 10/26/16 Added icon to output window.
+ */
 public class ChatViewer
 {
 	private String windowMessage;
@@ -10,7 +15,7 @@ public class ChatViewer
 	
 	public ChatViewer()
 	{
-		windowMessage = "This message is brought to you by the chatbot! :D";
+		windowMessage = "This is the chatbot speaking! :D";
 		chatIcon = new ImageIcon(getClass().getResource("images/chatbot.png"));
 	}
 	
@@ -34,7 +39,7 @@ public class ChatViewer
 	
 	public void displayMessage(String message)
 	{
-		JOptionPane.showMessageDialog(null, message);
+		JOptionPane.showMessageDialog(null, message, windowMessage, JOptionPane.PLAIN_MESSAGE, chatIcon);
 	}
 }
 
