@@ -127,7 +127,7 @@ public class Chatbot
 		
 		for (int index = 0; index < politicalTopicList.size(); index++)
 		{
-			if (currentInput != null && currentInput.equals(politicalTopicList.get(index)));
+			if (currentInput != null && currentInput.equals(politicalTopicList.get(index)))
 			{
 			hasPolitical = true;
 			}
@@ -147,7 +147,7 @@ public class Chatbot
 		
 		for (int index = 0; index < memesList.size(); index++)
 		{
-			if (currentInput != null && currentInput.contains(memesList.get(index)));
+			if (currentInput != null && currentInput.contains(memesList.get(index)))
 			{
 			hasMeme = true;
 			}
