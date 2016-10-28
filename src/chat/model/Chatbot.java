@@ -61,7 +61,7 @@ public class Chatbot
 		politicalTopicList.add("Deleted emails");
 		politicalTopicList.add("Sexism");
 		politicalTopicList.add("The Great Wall");
-		politicalTopicList.add("Hilary Dabbing");
+		politicalTopicList.add("Hillary Dabbing");
 		politicalTopicList.add("Foreign Policy");
 		politicalTopicList.add("Democrat");
 		politicalTopicList.add("Republican");
@@ -76,7 +76,7 @@ public class Chatbot
 		politicalTopicList.add("Stein");
 		politicalTopicList.add("Johnson");
 		politicalTopicList.add("election");
-		politicalTopicList.add("Hilary");
+		politicalTopicList.add("Hillary");
 		politicalTopicList.add("Donald");
 		politicalTopicList.add("The Don");
 	}
@@ -114,7 +114,7 @@ public class Chatbot
 		if(currentInput.toLowerCase().contains(content.toLowerCase()))
 		{
 			hasContent = true;
-					}
+		}
 		return hasContent;
 	}
 	
@@ -138,7 +138,6 @@ public class Chatbot
 		return hasPolitical;
 	}	
 	
-	
 	/**
 	 * Checks to see that the supplied String value is in the current memesList variable.
 	 * @param currentInput The supplied String to be checked.
@@ -159,6 +158,16 @@ public class Chatbot
 		return hasMeme;
 	}
 	
+	public boolean keyboardMashChecker(String currentInput)
+	{
+		boolean hasMash = false;
+		
+		if(currentInput.toLowerCase().contains(content.toLowerCase()))
+		{
+			hasMash = true;
+		}
+		return hasMash;
+	}
 	
 	//GETTERS-----------------------------------------------------------------------------------
 	

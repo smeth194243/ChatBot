@@ -39,15 +39,16 @@ public class ChatbotController
 			answer += "\nI can has memes?\n";
 		}
 		
+		if(stupidBot.politicalTopicChecker(input))
+		{
+			answer += "\nAre you sure?\n";
+		}
+		
 		if(answer.length() == 0)
 		{
 			answer += "Sorry, I don't know about " + input;
 		}
 		
-		if(stupidBot.politicalTopicChecker(input))
-		{
-			answer += "\nAre you sure?\n";
-		}
 		return answer;
 	}
 }
