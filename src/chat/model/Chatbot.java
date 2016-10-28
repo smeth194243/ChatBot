@@ -76,6 +76,9 @@ public class Chatbot
 		politicalTopicList.add("Stein");
 		politicalTopicList.add("Johnson");
 		politicalTopicList.add("election");
+		politicalTopicList.add("Hilary");
+		politicalTopicList.add("Donald");
+		politicalTopicList.add("The Don");
 	}
 	
 	/**
