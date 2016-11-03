@@ -12,7 +12,7 @@ import chat.view.ChatFrame;
 
 public class ChatControllerTest
 {
-	private ChatController testController;
+	private ChatControllerTest testController;
 
 	@Before
 	public void setUp() throws Exception
