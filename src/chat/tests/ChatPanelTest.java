@@ -17,12 +17,12 @@ import chat.view.ChatPanel;
 
 public class ChatPanelTest
 {
-	private ChatPanel basePanel;
+	private ChatPanelTest basePanel;
 	
 	@Before
 	public void setUp() throws Exception
 	{
-		basePanel = new ChatPanel(new ChatController());
+		basePanel = new ChatPanelTest(new ChatController());
 	}
 
 	@After
