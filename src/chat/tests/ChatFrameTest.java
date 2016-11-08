@@ -37,7 +37,7 @@ public class ChatFrameTest
 	{
 		assertNotEquals("Title not specified", baseFrame.getTitle(), "");
 		assertTrue("Frame visibility incorrectly set",baseFrame.isVisible());
-		assertTrue("Incorrect base panel type",baseFrame.getContentPane() instanceof ChatPanelTest);
+		assertTrue("Incorrect base panel type",baseFrame.getContentPane() instanceof ChatPanel);
 	}
 
 	private ChatPanelTest getContentPane()

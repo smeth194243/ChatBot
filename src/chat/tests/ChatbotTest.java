@@ -137,7 +137,7 @@ public class ChatbotTest
 	@Test
 	public void testKeyboardMashChecker()
 	{
-		assertFalse("Mash incorrectly detected", sampleBot.keyboardMashChecker("S.D.F."));
+		assertFalse("Mash incorrectly detected", sampleBot.keyboardMashChecker("sdf"));
 		assertFalse("Mash incorrectly detected", sampleBot.keyboardMashChecker("derf"));
 		assertTrue("Keyboard mashing not detected", sampleBot.keyboardMashChecker("asdf"));
 		assertTrue("Keyboard mashing not detected", sampleBot.keyboardMashChecker("dfg"));

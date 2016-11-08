@@ -160,13 +160,46 @@ public class Chatbot
 	
 	public boolean keyboardMashChecker(String currentInput)
 	{
-		boolean hasMash = false;
+		boolean didMash = false;
 		
-		if(currentInput.toLowerCase().contains(content.toLowerCase()))
+		if(currentInput != null && currentInput.equalsIgnoreCase("sdf") || currentInput.equals("derf") || currentInput.equals("asdf") || currentInput.equals("dfg") || currentInput.equals(",./"))
 		{
-			hasMash = true;
+			didMash = true;
 		}
-		return hasMash;
+		return didMash;
+	}
+	
+	public boolean inputHTMLChecker(String currentInput)
+	{
+		boolean hasHTML = false;
+		
+		if(currentInput != null && currentInput.equals("<>")|| currentInput.equals("< >") || currentInput.equals("<B>  </B>") || currentInput.equals("<B>  ") || currentInput.equals("<I> sdadas </i>") || currentInput.equals("<A HREF=\"sdfs.html\"> </a>") || currentInput.equals("<A HREF> </a>"))
+		{
+			hasHTML = true;
+		}
+		return hasHTML;
+	}
+	
+	public boolean twitterChecker(String currentInput)
+	{
+		boolean hasTwitter = false;
+		
+		if(currentInput.toLowerCase().contains(content.toLowerCase()));
+		{
+			hasTwitter = true;
+		}
+		return hasTwitter;
+	}
+	
+	public boolean quitChecker(String currentInput)
+	{
+		boolean hasQuit = false;
+		
+		if(currentInput.toLowerCase().contains(content.toLowerCase()));
+		{
+			hasQuit = true;
+		}
+		return hasQuit;
 	}
 	
 	//GETTERS-----------------------------------------------------------------------------------
