@@ -5,17 +5,18 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import chat.view.*;
 import chat.controller.*;
 
 public class ChatFrameTest
 {
-	private ChatFrameTest baseFrame;
+	private ChatFrame baseFrame;
 
 	@Before
 	public void setUp() throws Exception
 	{
-		baseFrame = new ChatFrameTest(new ChatController());
+		baseFrame = new ChatFrame(new ChatController());
 	}
 
 	@After
@@ -36,7 +37,25 @@ public class ChatFrameTest
 	{
 		assertNotEquals("Title not specified", baseFrame.getTitle(), "");
 		assertTrue("Frame visibility incorrectly set",baseFrame.isVisible());
-		assertTrue("Incorrect base panel type",baseFrame.getContentPane() instanceof ChatPanel);
+		assertTrue("Incorrect base panel type",baseFrame.getContentPane() instanceof ChatPanelTest);
+	}
+
+	private ChatPanelTest getContentPane()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private boolean isVisible()
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	private Object getTitle()
+	{
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
