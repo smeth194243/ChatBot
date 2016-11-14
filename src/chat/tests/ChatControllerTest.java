@@ -17,7 +17,7 @@ public class ChatControllerTest
 	@Before
 	public void setUp() throws Exception
 	{
-		testController = new ChatController();
+		testController = new ChatControllerTest();
 	}
 
 	@After
@@ -33,6 +33,18 @@ public class ChatControllerTest
 		assertTrue("Incorrect display data type", testController.getBaseFrame() instanceof ChatFrame);
 		assertNotNull("Chatbot not initialized", testController.getChatbot());
 		assertTrue("Incorrect data type", testController.getChatbot() instanceof Chatbot);
+	}
+
+	private Object getChatbot()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private Object getBaseFrame()
+	{
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

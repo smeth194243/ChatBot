@@ -16,6 +16,7 @@ public class ChatPanel extends JPanel
 	private JTextArea chatDisplay;
 	private JTextField chatField;
 	private JButton chatButton;
+	private JLabel chatLabel;
 	
 	public ChatPanel(ChatController baseController)
 	{
@@ -25,10 +26,20 @@ public class ChatPanel extends JPanel
 		chatDisplay = new JTextArea(5,25);
 		chatField = new JTextField(25);
 		chatButton = new JButton("Chat with the bot");
+		chatLabel = new JLabel("Shall we play a game?");
 	
+		setupChatDisplay();
 		setupPanel();
 		setupLayout();
 		setupListeners();
+	}
+	
+	private void setupChatDisplay()
+	{
+		chatDisplay.setEditable(false);
+		chatDisplay.setEnabled(false);
+		chatDisplay.setLineWrap(true);
+		chatDisplay.setWrapStyleWord(true);
 	}
 	
 	private void setupPanel()
@@ -38,6 +49,8 @@ public class ChatPanel extends JPanel
 		this.add(chatDisplay);
 		this.add(chatButton);
 		this.add(chatField);
+		this.add(chatLabel);
+		
 	}
 	
 	private void setupLayout()

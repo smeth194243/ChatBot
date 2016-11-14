@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JTextArea;
+import javax.swing.SpringLayout;
 
 import org.junit.After;
 import org.junit.Before;
@@ -48,6 +49,18 @@ public class ChatPanelTest
 		
 	}
 	
+	private Object getComponents()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private SpringLayout getLayout()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	@Test
 	public void testSetupListeners()
 	{
