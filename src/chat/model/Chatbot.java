@@ -171,13 +171,14 @@ public class Chatbot
 	
 	public boolean inputHTMLChecker(String currentInput)
 	{
-		boolean hasHTML = false;
+		String trimmed = currentInput.replaceAll(" ", "");
 		
-		if(currentInput != null && currentInput.equals("<>")|| currentInput.equals("< >") || currentInput.equals("<B>  </B>") || currentInput.equals("<B>  ") || currentInput.equals("<I> sdadas </i>") || currentInput.equals("<A HREF=\"sdfs.html\"> </a>") || currentInput.equals("<A HREF> </a>"))
+		boolean htmlbool = false;
+		if((trimmed.startsWith("<") && trimmed.contains(">")) && (trimmed.length() > 2 && !currentInput.endsWith("  ") && !currentInput.endsWith("F> </a>")))
 		{
-			hasHTML = true;
-		}
-		return hasHTML;
+			htmlbool = true;
+		}				
+		return htmlbool;
 	}
 	
 	public boolean twitterChecker(String currentInput)
