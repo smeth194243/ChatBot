@@ -2,16 +2,19 @@ package chat.controller;
 
 import chat.model.Chatbot;
 import chat.view.ChatViewer;
+import chat.view.ChatFrame;
 
 public class ChatController
 {
 	private Chatbot stupidBot;
 	private ChatViewer chatView;
+	private ChatFrame baseFrame;
 	
 	public ChatController()
 	{
 		stupidBot = new Chatbot("Farty McFartFace");
 		chatView = new ChatViewer();
+		baseFrame = new ChatFrame(this);
 	}
 	
 	public void start()
@@ -25,7 +28,7 @@ public class ChatController
 		}	
 	}
 	
-	private String useChatbotCheckers(String input)
+	public String useChatbotCheckers(String input)
 	{
 		String answer = "";
 		
@@ -44,7 +47,7 @@ public class ChatController
 			answer += "\nAre you sure?\n";
 		}
 		
-		if(answer.length() == 0)
+		if(!stupidBot.lengthChecker(answer))
 		{
 			answer += "Sorry, I don't know about " + input;
 		}
