@@ -162,7 +162,7 @@ public class Chatbot
 	{
 		boolean didMash = false;
 		
-		if(currentInput != null && currentInput.equalsIgnoreCase("sdf") || currentInput.equals("derf") || currentInput.equals("asdf") || currentInput.equals("dfg") || currentInput.equals(",./"))
+		if((currentInput.contains("sdf") || currentInput.contains("derf") || currentInput.contains("asdf") || currentInput.contains("dfg") || currentInput.contains(",./")))
 		{
 			didMash = true;
 		}
@@ -183,24 +183,24 @@ public class Chatbot
 	
 	public boolean twitterChecker(String currentInput)
 	{
-		boolean hasTwitter = false;
-		
-		if(currentInput.toLowerCase().contains(content.toLowerCase()));
+		boolean twitterbool = false;
+		String trimmed = currentInput.replaceAll(" ",  "");
+		if(trimmed.length() >1 && !currentInput.startsWith(" "))
 		{
-			hasTwitter = true;
+			twitterbool = true;
 		}
-		return hasTwitter;
+		return twitterbool;
 	}
 	
 	public boolean quitChecker(String currentInput)
 	{
-		boolean hasQuit = false;
+		boolean didquit = false;
 		
-		if(currentInput.toLowerCase().contains(content.toLowerCase()));
+		if(currentInput.equalsIgnoreCase("Quit") || currentInput.equalsIgnoreCase("Exit"));
 		{
-			hasQuit = true;
+			didquit = true;
 		}
-		return hasQuit;
+		return didquit;
 	}
 	
 	//GETTERS-----------------------------------------------------------------------------------
