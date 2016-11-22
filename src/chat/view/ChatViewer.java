@@ -13,12 +13,20 @@ public class ChatViewer
 	private String windowMessage;
 	private ImageIcon chatIcon;
 	
+	/**
+	 * Creates the public view thing.
+	 */
 	public ChatViewer()
 	{
 		windowMessage = "This is the chatbot speaking! :D";
 		chatIcon = new ImageIcon(getClass().getResource("images/chatbot.png"));
 	}
 	
+	/**
+	 * Collects responses from user.
+	 * @param question
+	 * @return
+	 */
 	public String collectResponse(String question)
 	{
 		String response = "";
@@ -28,6 +36,11 @@ public class ChatViewer
 		return response;
 	}
 	
+	/**
+	 * Confirms input from user
+	 * @param question
+	 * @return
+	 */
 	public int collectUserOption(String question)
 	{
 		int response = 0;
@@ -37,6 +50,10 @@ public class ChatViewer
 		return response;
 	}
 	
+	/**
+	 * Displays the message from the chatbot
+	 * @param message
+	 */
 	public void displayMessage(String message)
 	{
 		JOptionPane.showMessageDialog(null, message, windowMessage, JOptionPane.PLAIN_MESSAGE, chatIcon);

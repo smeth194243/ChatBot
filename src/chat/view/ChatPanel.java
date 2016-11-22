@@ -9,6 +9,11 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * Initiates data members and holds everything. Extends the JPanel class.
+ * @author smor7432
+ *
+ */
 public class ChatPanel extends JPanel
 {
 	private ChatController baseController;
