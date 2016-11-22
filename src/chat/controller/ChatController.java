@@ -32,6 +32,8 @@ public class ChatController
 	{
 		String answer = "";
 		
+	if(!stupidBot.quitChecker(input))
+	{
 		if(stupidBot.contentChecker(input))
 		{
 			answer += "\nYou know my special secret\n";
@@ -52,6 +54,22 @@ public class ChatController
 			answer += "Sorry, I don't know about " + input;
 		}
 		
+		int canBeRandom = (int) (Math.random() * 7);
+		if (canBeRandom % 7 == 0)
+		{
+			answer += randomTopicGenerator();
+		}
+	}
+	else
+	{
+		chatView.displayMessage("Thank you for chatting with me :D");
+		System.exit(0);
+	}
 		return answer;
+	}
+	
+	public void randomTopicGenerator()
+	{
+		
 	}
 }
