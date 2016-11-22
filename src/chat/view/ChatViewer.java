@@ -28,7 +28,7 @@ public class ChatViewer
 		return response;
 	}
 	
-	public int collectUseroption(String question)
+	public int collectUserOption(String question)
 	{
 		int response = 0;
 		

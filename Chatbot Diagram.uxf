@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>40</y>
+      <w>240</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>chat.controller :: ChatbotRunner
+--
+
+--
++main(String[] args) : Void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>40</y>
+      <w>240</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>chat.controller :: ChatController
+--
+-stupidBot : Chatbot
+-chatView : ChatViewer
+-baseFrame : ChatFrame
+--
++start()
++useChatbotCheckers</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>220</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>chat.view :: ChatViewer
+--
+-windowMessage : String
+-chatIcon : ImageIcon
+--
++collectResponse(String question) : String
++collectUserOption(String question) : Int
++displayMessage(String message) : Void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>220</y>
+      <w>260</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>chat.tests :: ChatbotTest
+--
+-sampleBot : Chatbot
+-userName : String
+--
++setUp() : Void
++tearDown() : Void
++testChatbot() : Void
++testGetUserName() : Void
++testGetContent() : Void
++testGetMemesList() : Void
++testGetPoliticalTopicList() : Void
++testSetContent() : Void
++testLengthChecker() : Void
++testContentChecker() : Void
++testBuildMemesList() : Void
++testBuildPoliticalTopicList() : Void
++testKeyboardMashChecker() : Void
++testPoliticalTopicChecker() : Void
++testMemeChecker() : Void
++testInputHTMLChecker() : Void
++testTwitterChecker() : Void
++testQuitChecker() : Void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>360</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>SimpleClass</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
