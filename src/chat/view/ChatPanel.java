@@ -18,6 +18,10 @@ public class ChatPanel extends JPanel
 	private JButton chatButton;
 	private JLabel chatLabel;
 	
+	/**
+	 * Initiates the different parts of the Panel and calls setup methods
+	 * @param baseController
+	 */
 	public ChatPanel(ChatController baseController)
 	{
 		super();
@@ -34,6 +38,9 @@ public class ChatPanel extends JPanel
 		setupListeners();
 	}
 	
+	/**
+	 * Modifies the display, changing the users abilities.
+	 */
 	private void setupChatDisplay()
 	{
 		chatDisplay.setEditable(false);
@@ -42,6 +49,9 @@ public class ChatPanel extends JPanel
 		chatDisplay.setWrapStyleWord(true);
 	}
 	
+	/**
+	 * Sets up the panel, background, and adds data members.
+	 */
 	private void setupPanel()
 	{
 		this.setLayout(baseLayout);
@@ -53,6 +63,9 @@ public class ChatPanel extends JPanel
 		
 	}
 	
+	/**
+	 * Sets up the layout and holds all the constraints from the WindowBuilder.
+	 */
 	private void setupLayout()
 	{
 		baseLayout.putConstraint(SpringLayout.NORTH, chatDisplay, 10, SpringLayout.NORTH, this);
@@ -65,6 +78,9 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.WEST, chatButton, 145, SpringLayout.WEST, this);
 	}
 	
+	/**
+	 * Sets up the actions and responses to actions from the user and/or chatbot.
+	 */
 	private void setupListeners()
 	{
 		chatButton.addActionListener(new ActionListener()

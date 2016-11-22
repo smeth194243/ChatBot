@@ -29,6 +29,9 @@ public class Chatbot
 		this.buildPoliticalTopicsList();
 	}
 	
+	/**
+	 * Creates the list of .meme data members.
+	 */
 	private void buildMemesList()
 	{
 		memesList.add("doge");
@@ -53,6 +56,9 @@ public class Chatbot
         //memesList.add("")
 	}
 	
+	/**
+	 * Creates the list of .politicalTopic data members.
+	 */
 	private void buildPoliticalTopicsList()
 	{
 		politicalTopicList.add("McMullen");
@@ -158,6 +164,11 @@ public class Chatbot
 		return hasMeme;
 	}
 	
+	/**
+	 * Checks the currentInput of the user for keyboard mashing.
+	 * @param currentInput
+	 * @return
+	 */
 	public boolean keyboardMashChecker(String currentInput)
 	{
 		boolean didMash = false;
@@ -169,6 +180,11 @@ public class Chatbot
 		return didMash;
 	}
 	
+	/**
+	 * Checks the currentInput of the user for HTML tags. Don't Know what that means, but thats what it does.
+	 * @param currentInput
+	 * @return
+	 */
 	public boolean inputHTMLChecker(String currentInput)
 	{
 		String trimmed = currentInput.replaceAll(" ", "");
@@ -181,6 +197,11 @@ public class Chatbot
 		return htmlbool;
 	}
 	
+	/**
+	 * Checks the currentInput of the user for Twitter tags or usernames.
+	 * @param currentInput
+	 * @return
+	 */
 	public boolean twitterChecker(String currentInput)
 	{
 		boolean twitterbool = false;
@@ -192,6 +213,11 @@ public class Chatbot
 		return twitterbool;
 	}
 	
+	/**
+	 * Checks the currentInput of the user for the command to quit.
+	 * @param currentInput
+	 * @return
+	 */
 	public boolean quitChecker(String currentInput)
 	{
 		boolean didquit = false;
@@ -255,16 +281,28 @@ public class Chatbot
 		this.content = content;
 	}
 	
+	/**
+	 * Updates the memes content area for this Chatbot instance
+	 * @param memesList
+	 */
 	public void setMemesList(ArrayList<String> memesList)
 	{
 		this.memesList = memesList;
 	}
 	
+	/**
+	 * Updates the political topics content area for this Chatbot instance.
+	 * @param politicalTopicList
+	 */
 	public void setPoliticalTopicList(ArrayList<String> politicalTopicList)
 	{
 		this.politicalTopicList = politicalTopicList;
 	}
 	
+	/**
+	 * Updates the username parameters for this Chatbot instance.
+	 * @param userName
+	 */
 	public void setUserName(String userName)
 	{
 		this.userName = userName;

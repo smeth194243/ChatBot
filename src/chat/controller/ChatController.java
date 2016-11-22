@@ -68,8 +68,39 @@ public class ChatController
 		return answer;
 	}
 	
-	public void randomTopicGenerator()
+	private String randomTopicGenerator()
 	{
+		String randomTopic = "";
+		int random = (int) (Math.random() * 7);
 		
+		switch (random)
+		{
+		case 0 : 
+			randomTopic = "Did you hear about the Beatles Daft Punk remix?";
+			break;
+		case 1:
+			randomTopic = "Can I have some Mayo?";
+			break;
+		case 2:
+			randomTopic = "Time for some industrial!";
+			break;
+		case 3:
+			randomTopic = "Reading books is good.";
+			break;
+		case 4:
+			randomTopic = "I love java.";
+			break;
+		case 5:
+			randomTopic = "I like to bike!";
+			break;
+		case 6:
+			randomTopic = "Who did this!?";
+			break;
+		default:
+			randomTopic = "I can't believe this! :o :o";
+			break;
+		}
+		
+		return randomTopic;
 	}
 }
