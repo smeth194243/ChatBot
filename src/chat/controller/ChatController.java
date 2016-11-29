@@ -4,11 +4,21 @@ import chat.model.Chatbot;
 import chat.view.ChatViewer;
 import chat.view.ChatFrame;
 
+/**
+ * The main controller class.
+ * @author smor7432
+ *
+ */
+
 public class ChatController
 {
 	private Chatbot stupidBot;
 	private ChatViewer chatView;
 	private ChatFrame baseFrame;
+	
+	/**
+	 * Declares the data members
+	 */
 	
 	public ChatController()
 	{
@@ -16,6 +26,10 @@ public class ChatController
 		chatView = new ChatViewer();
 		baseFrame = new ChatFrame(this);
 	}
+	
+	/**
+	 * Starts the program and holds the main body of said program
+	 */
 	
 	public void start()
 	{
@@ -27,6 +41,13 @@ public class ChatController
 			response = chatView.collectResponse("Oh, you are interested in " + response + "?");
 		}	
 	}
+	
+	/**
+	 * This method calls the checkers which check the input from the user,
+	 * and sees if it contains the defined strings or values.
+	 * @param input
+	 * @return
+	 */
 	
 	public String useChatbotCheckers(String input)
 	{
@@ -67,6 +88,11 @@ public class ChatController
 	}
 		return answer;
 	}
+	
+	/**
+	 * This method generates random topics for the user to talk with the chatbot about.
+	 * @return
+	 */
 	
 	private String randomTopicGenerator()
 	{
