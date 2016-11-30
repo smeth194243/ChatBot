@@ -1,6 +1,7 @@
 package chat.tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
@@ -12,12 +13,12 @@ import chat.view.ChatFrame;
 
 public class ChatControllerTest
 {
-	private ChatControllerTest testController;
+	private ChatController testController;
 
 	@Before
 	public void setUp() throws Exception
 	{
-		testController = new ChatControllerTest();
+		testController = new ChatController();
 	}
 
 	@After
@@ -35,16 +36,8 @@ public class ChatControllerTest
 		assertTrue("Incorrect data type", testController.getChatbot() instanceof Chatbot);
 	}
 
-	private Object getChatbot()
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
-	private Object getBaseFrame()
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

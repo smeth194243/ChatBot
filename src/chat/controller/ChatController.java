@@ -129,4 +129,22 @@ public class ChatController
 		
 		return randomTopic;
 	}
+	
+	/**
+	 * creates(gets) the BaseFrame method
+	 * @return
+	 */
+	public Object getBaseFrame()
+	{
+		return baseFrame;
+	}
+	
+	/**
+	 * creates(gets) the chatBot method
+	 * @return
+	 */
+	public Object getChatbot()
+	{
+		return stupidBot;
+	}
 }

@@ -71,7 +71,6 @@ public class Chatbot
 		politicalTopicList.add("Foreign Policy");
 		politicalTopicList.add("Democrat");
 		politicalTopicList.add("Republican");
-		politicalTopicList.add("11/4/16");
 		politicalTopicList.add("11/8/16");
 		politicalTopicList.add("conservative");
 		politicalTopicList.add("liberal");

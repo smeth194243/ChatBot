@@ -18,12 +18,12 @@ import chat.view.ChatPanel;
 
 public class ChatPanelTest
 {
-	private ChatPanelTest basePanel;
+	private ChatPanel basePanel;
 	
 	@Before
 	public void setUp() throws Exception
 	{
-		basePanel = new ChatPanelTest(new ChatController());
+		basePanel = new ChatPanel(new ChatController());
 	}
 
 	@After
@@ -49,13 +49,13 @@ public class ChatPanelTest
 		
 	}
 	
-	private Object getComponents()
+	public Object getComponents()
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	private SpringLayout getLayout()
+	public SpringLayout getLayout()
 	{
 		// TODO Auto-generated method stub
 		return null;
