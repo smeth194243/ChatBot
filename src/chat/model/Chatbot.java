@@ -186,14 +186,26 @@ public class Chatbot
 	 */
 	public boolean inputHTMLChecker(String currentInput)
 	{
-		String trimmed = currentInput.replaceAll(" ", "");
-		
-		boolean htmlbool = false;
-		if((trimmed.startsWith("<") && trimmed.contains(">")) && (trimmed.length() > 2 && !currentInput.endsWith("  ") && !currentInput.endsWith("F> </a>")))
+		boolean htmlBool = false;
+		String part1;
+		int a = currentInput.indexOf(">");
+		if(a >= 0)
 		{
-			htmlbool = true;
-		}				
-		return htmlbool;
+			String trimmed = currentInput.replaceAll(" ", "");
+			int b = currentInput.length();
+			part1 = currentInput.substring(0, a++);
+			a = currentInput.indexOf(">");
+			String part2 = currentInput.substring(a++);
+			
+			if((currentInput.equalsIgnoreCase("<p>") || part2.contains("<") && part2.contains(">"))
+					&&(trimmed.length() > 2 && !currentInput.endsWith("  ") && part1.length() > 2
+							&& !currentInput.endsWith("F> </a>") && part1.contains("<")))
+			{
+				htmlBool = true;
+			}
+			
+			return htmlBool;
+		}
 	}
 	
 	/**
