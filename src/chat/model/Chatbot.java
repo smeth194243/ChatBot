@@ -187,25 +187,46 @@ public class Chatbot
 	public boolean inputHTMLChecker(String currentInput)
 	{
 		boolean htmlBool = false;
-		String part1;
-		int a = currentInput.indexOf(">");
-		if(a >= 0)
+		
+		if(currentInput.contains("<P>"))
 		{
-			String trimmed = currentInput.replaceAll(" ", "");
-			int b = currentInput.length();
-			part1 = currentInput.substring(0, a++);
-			a = currentInput.indexOf(">");
-			String part2 = currentInput.substring(a++);
-			
-			if((currentInput.equalsIgnoreCase("<p>") || part2.contains("<") && part2.contains(">"))
-					&&(trimmed.length() > 2 && !currentInput.endsWith("  ") && part1.length() > 2
-							&& !currentInput.endsWith("F> </a>") && part1.contains("<")))
-			{
-				htmlBool = true;
-			}
-			
-			return htmlBool;
+			htmlBool = true;
 		}
+		else if(currentInput.contains("<A HREF=\""))
+		{
+			int index = currentInput.indexOf("<A HREF=\"") + 9;
+			String sub = currentInput.substring(index);
+			
+			if(sub.contains("\">"))
+			{
+				int index2 = sub.indexOf("\">");
+				String sub2 = sub.substring(index2);
+				
+				if(sub2.contains(" </a>"))
+				{
+					htmlBool = true;
+				}
+			}
+		}
+		else if(currentInput.contains("<"))
+		{
+			String lower = currentInput.toLowerCase();
+			int openIndex1 = lower.indexOf("<") + 1;
+			String tag = "";
+			if(lower.contains(">"))
+			{
+				int openIndex2 = lower.indexOf(">");
+				tag = lower.substring(openIndex1, openIndex2);
+				
+				String sub = lower.substring(openIndex2 + 1);
+				
+				if(sub.contains("</" + tag + ">"))
+				{
+					htmlBool = true;
+				}
+			}
+		}
+		return htmlBool;
 	}
 	
 	/**
