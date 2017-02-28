@@ -22,6 +22,7 @@ public class ChatPanel extends JPanel
 	private JTextField chatField;
 	private JButton chatButton;
 	private JLabel chatLabel;
+	private JScrollPane chatPane;
 	
 	/**
 	 * Initiates the different parts of the Panel and calls setup methods
@@ -32,10 +33,13 @@ public class ChatPanel extends JPanel
 		super();
 		this.baseController = baseController;
 		baseLayout = new SpringLayout();
-		chatDisplay = new JTextArea(5,25);
 		chatField = new JTextField(25);
+		
 		chatButton = new JButton("Chat with the bot");
+		
 		chatLabel = new JLabel("Shall we play a game?");
+		
+		chatPane = new JScrollPane();
 	
 		setupChatDisplay();
 		setupPanel();
@@ -52,6 +56,10 @@ public class ChatPanel extends JPanel
 		chatDisplay.setEnabled(false);
 		chatDisplay.setLineWrap(true);
 		chatDisplay.setWrapStyleWord(true);
+		chatPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		chatPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		
+		
 	}
 	
 	/**
@@ -61,10 +69,13 @@ public class ChatPanel extends JPanel
 	{
 		this.setLayout(baseLayout);
 		this.setBackground(Color.GREEN);
-		this.add(chatDisplay);
+		this.add(chatPane);
 		this.add(chatButton);
 		this.add(chatField);
 		this.add(chatLabel);
+		chatDisplay = new JTextArea(5,25);
+		
+		add(chatDisplay);
 		
 	}
 	
@@ -73,14 +84,16 @@ public class ChatPanel extends JPanel
 	 */
 	private void setupLayout()
 	{
-		baseLayout.putConstraint(SpringLayout.NORTH, chatDisplay, 10, SpringLayout.NORTH, this);
 		chatField.setHorizontalAlignment(SwingConstants.CENTER);
-		baseLayout.putConstraint(SpringLayout.NORTH, chatField, 28, SpringLayout.SOUTH, chatDisplay);
-		baseLayout.putConstraint(SpringLayout.WEST, chatDisplay, 0, SpringLayout.WEST, chatField);
-		baseLayout.putConstraint(SpringLayout.WEST, chatField, 72, SpringLayout.WEST, this);
 		chatButton.setVerticalAlignment(SwingConstants.BOTTOM);
-		baseLayout.putConstraint(SpringLayout.NORTH, chatButton, 55, SpringLayout.SOUTH, chatField);
-		baseLayout.putConstraint(SpringLayout.WEST, chatButton, 145, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.WEST, chatField, 103, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, chatField, -7, SpringLayout.NORTH, chatButton);
+		baseLayout.putConstraint(SpringLayout.WEST, chatButton, 149, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, chatButton, -57, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, chatLabel, 0, SpringLayout.WEST, chatButton);
+		baseLayout.putConstraint(SpringLayout.SOUTH, chatLabel, -25, SpringLayout.NORTH, chatDisplay);
+		baseLayout.putConstraint(SpringLayout.WEST, chatDisplay, 0, SpringLayout.WEST, chatField);
+		baseLayout.putConstraint(SpringLayout.SOUTH, chatDisplay, -15, SpringLayout.NORTH, chatField);
 	}
 	
 	/**
