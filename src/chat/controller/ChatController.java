@@ -33,13 +33,14 @@ public class ChatController
 	
 	public void start()
 	{
-		String response = display.collectResponse("What shall we talk about today?");
+	/*	String response = display.collectResponse("What shall we talk about today?");
 		
 		while(stupidBot.lengthChecker(response))
 		{
 			display.displayMessage(useChatbotCheckers(response));
 			response = display.collectResponse("Oh, you are interested in " + response + "?");
 		}	
+		*/
 	}
 	
 	/**
@@ -157,6 +158,10 @@ public class ChatController
 	public Object getBaseFrame()
 	{
 		return baseFrame;
+	}
+	public ChatViewer getPopup()
+	{
+		return display;
 	}
 	
 	/**

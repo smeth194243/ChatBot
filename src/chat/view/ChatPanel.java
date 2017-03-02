@@ -3,6 +3,8 @@ package chat.view;
 import javax.swing.*;
 import java.awt.Color;
 import chat.controller.ChatController;
+import chat.controller.FileController;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
@@ -41,14 +43,21 @@ public class ChatPanel extends JPanel
 		chatDisplay = new JTextArea(5,25);
 		chatButton = new JButton("Chat with the bot");
 		chatLabel = new JLabel("Shall we play a game?");
+		
 		chatPane = new JScrollPane();
+		
+		
 		saveButton = new JButton("Save");
+	
 		
 		loadButton = new JButton("Load");
 		
+		
 		sendTwitter = new JButton("Send a Tweet");
 		
+		
 		searchTwitter = new JButton("Search Twitter");
+		
 		
 	
 		setupChatDisplay();
@@ -105,18 +114,20 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.SOUTH, chatField, -7, SpringLayout.NORTH, chatButton);
 		baseLayout.putConstraint(SpringLayout.WEST, chatButton, 149, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.SOUTH, chatButton, -57, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, chatLabel, 0, SpringLayout.WEST, chatButton);
-		baseLayout.putConstraint(SpringLayout.SOUTH, chatLabel, -25, SpringLayout.NORTH, chatDisplay);
 		baseLayout.putConstraint(SpringLayout.WEST, chatDisplay, 0, SpringLayout.WEST, chatField);
 		baseLayout.putConstraint(SpringLayout.SOUTH, chatDisplay, -15, SpringLayout.NORTH, chatField);
-		baseLayout.putConstraint(SpringLayout.EAST, saveButton, -22, SpringLayout.WEST, chatField);
-		baseLayout.putConstraint(SpringLayout.NORTH, loadButton, 1, SpringLayout.NORTH, chatButton);
-		baseLayout.putConstraint(SpringLayout.WEST, loadButton, 0, SpringLayout.WEST, saveButton);
+		baseLayout.putConstraint(SpringLayout.WEST, chatPane, 103, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, chatPane, -125, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, sendTwitter, 0, SpringLayout.WEST, searchTwitter);
+		baseLayout.putConstraint(SpringLayout.NORTH, searchTwitter, 0, SpringLayout.NORTH, saveButton);
+		baseLayout.putConstraint(SpringLayout.WEST, searchTwitter, 6, SpringLayout.EAST, chatField);
 		baseLayout.putConstraint(SpringLayout.NORTH, sendTwitter, 1, SpringLayout.NORTH, chatButton);
-		baseLayout.putConstraint(SpringLayout.EAST, sendTwitter, -10, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, saveButton, 0, SpringLayout.NORTH, searchTwitter);
-		baseLayout.putConstraint(SpringLayout.NORTH, searchTwitter, -1, SpringLayout.NORTH, chatField);
-		baseLayout.putConstraint(SpringLayout.WEST, searchTwitter, 0, SpringLayout.WEST, sendTwitter);
+		baseLayout.putConstraint(SpringLayout.SOUTH, saveButton, -6, SpringLayout.NORTH, loadButton);
+		baseLayout.putConstraint(SpringLayout.NORTH, loadButton, 1, SpringLayout.NORTH, chatButton);
+		baseLayout.putConstraint(SpringLayout.EAST, loadButton, 0, SpringLayout.EAST, saveButton);
+		baseLayout.putConstraint(SpringLayout.EAST, saveButton, -6, SpringLayout.WEST, chatField);
+		baseLayout.putConstraint(SpringLayout.SOUTH, chatLabel, -21, SpringLayout.NORTH, chatPane);
+		baseLayout.putConstraint(SpringLayout.EAST, chatLabel, 0, SpringLayout.EAST, chatButton);
 	}
 	
 	/**
@@ -130,9 +141,40 @@ public class ChatPanel extends JPanel
 			{
 				String userWords = chatField.getText();
 				String botResponse = baseController.useChatbotCheckers(userWords);
+				String currentText = chatDisplay.getText();
 				
-				chatDisplay.setText("You said: " + userWords + "\n" + "Chatbot said " + botResponse);
+				chatDisplay.setText(currentText + "You said: " + userWords + "\n"
+							+ "Chatbot said " + botResponse + "\n");
+				chatDisplay.setCaretPosition(0);
 				chatField.setText("");
+			}
+		});
+		
+		saveButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String fileName = chatField.getText();
+				
+				FileController.saveFile(baseController, fileName.trim(), chatDisplay.getText());
+			}
+		});
+		
+		loadButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String fileName = chatField.getText() + ".txt";
+				String saved = FileController.readFile(baseController, fileName);
+				chatDisplay.setText(saved);
+			}
+		});
+		
+		searchTwitter.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				
 			}
 		});
 	}
