@@ -76,11 +76,6 @@ public class ChatController
 			answer += "Sorry, I don't know about " + input;
 		}
 		
-		if(stupidBot.quitChecker(input))
-		{
-			System.exit(0);
-		}
-		
 		if(stupidBot.inputHTMLChecker(input))
 		{
 			answer += "\nWhat am I, Google Chrome?\n";
