@@ -13,7 +13,7 @@ import chat.view.ChatFrame;
 public class ChatController
 {
 	private Chatbot stupidBot;
-	private ChatViewer chatView;
+	private ChatViewer display;
 	private ChatFrame baseFrame;
 	
 	/**
@@ -23,7 +23,7 @@ public class ChatController
 	public ChatController()
 	{
 		stupidBot = new Chatbot("Farty McFartFace");
-		chatView = new ChatViewer();
+		display = new ChatViewer();
 		baseFrame = new ChatFrame(this);
 	}
 	
@@ -33,12 +33,12 @@ public class ChatController
 	
 	public void start()
 	{
-		String response = chatView.collectResponse("What shall we talk about today?");
+		String response = display.collectResponse("What shall we talk about today?");
 		
 		while(stupidBot.lengthChecker(response))
 		{
-			chatView.displayMessage(useChatbotCheckers(response));
-			response = chatView.collectResponse("Oh, you are interested in " + response + "?");
+			display.displayMessage(useChatbotCheckers(response));
+			response = display.collectResponse("Oh, you are interested in " + response + "?");
 		}	
 	}
 	
@@ -98,7 +98,7 @@ public class ChatController
 	}
 	else
 	{
-		chatView.displayMessage("Thank you for chatting with me :D");
+		display.displayMessage("Thank you for chatting with me :D");
 		System.exit(0);
 	}
 		return answer;
@@ -145,6 +145,11 @@ public class ChatController
 		return randomTopic;
 	}
 	
+	public void handleErrors(Exception currentException)
+	{
+		display.displayMessage("An error has occured. Details provided next.");
+		display.displayMessage(currentException.getMessage());
+	}
 	/**
 	 * creates(gets) the BaseFrame method
 	 * @return

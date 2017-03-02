@@ -26,7 +26,7 @@ public class ChatPanel extends JPanel
 	private JButton saveButton;
 	private JButton loadButton;
 	private JButton sendTwitter;
-	private JButton analyzeTwitter;
+	private JButton searchTwitter;
 	
 	/**
 	 * Initiates the different parts of the Panel and calls setup methods
@@ -48,7 +48,7 @@ public class ChatPanel extends JPanel
 		
 		sendTwitter = new JButton("Send a Tweet");
 		
-		analyzeTwitter = new JButton("Analyze Twitter");
+		searchTwitter = new JButton("Search Twitter");
 		
 	
 		setupChatDisplay();
@@ -82,7 +82,7 @@ public class ChatPanel extends JPanel
 		this.setBackground(Color.GREEN);
 		this.add(chatPane);
 		this.add(chatButton);
-		this.add(analyzeTwitter);
+		this.add(searchTwitter);
 		this.add(sendTwitter);
 		this.add(saveButton);
 		this.add(loadButton);
@@ -114,9 +114,9 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.WEST, loadButton, 0, SpringLayout.WEST, saveButton);
 		baseLayout.putConstraint(SpringLayout.NORTH, sendTwitter, 1, SpringLayout.NORTH, chatButton);
 		baseLayout.putConstraint(SpringLayout.EAST, sendTwitter, -10, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, saveButton, 0, SpringLayout.NORTH, analyzeTwitter);
-		baseLayout.putConstraint(SpringLayout.NORTH, analyzeTwitter, -1, SpringLayout.NORTH, chatField);
-		baseLayout.putConstraint(SpringLayout.WEST, analyzeTwitter, 0, SpringLayout.WEST, sendTwitter);
+		baseLayout.putConstraint(SpringLayout.NORTH, saveButton, 0, SpringLayout.NORTH, searchTwitter);
+		baseLayout.putConstraint(SpringLayout.NORTH, searchTwitter, -1, SpringLayout.NORTH, chatField);
+		baseLayout.putConstraint(SpringLayout.WEST, searchTwitter, 0, SpringLayout.WEST, sendTwitter);
 	}
 	
 	/**
