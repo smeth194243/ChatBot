@@ -3,6 +3,7 @@ package chat.controller;
 import chat.model.Chatbot;
 import chat.view.ChatViewer;
 import chat.view.ChatFrame;
+import chat.model.CTECTwitter;
 
 /**
  * The main controller class.
@@ -15,6 +16,7 @@ public class ChatController
 	private Chatbot stupidBot;
 	private ChatViewer display;
 	private ChatFrame baseFrame;
+	private CTECTwitter tweetBot;
 	
 	/**
 	 * Declares the data members
@@ -23,6 +25,7 @@ public class ChatController
 	public ChatController()
 	{
 		stupidBot = new Chatbot("Farty McFartFace");
+		tweetBot = new CTECTwitter(this);
 		display = new ChatViewer();
 		baseFrame = new ChatFrame(this);
 	}
@@ -104,6 +107,11 @@ public class ChatController
 	 * This method generates random topics for the user to talk with the chatbot about.
 	 * @return
 	 */
+	
+	public void useTwitter(String text)
+	{
+		tweetBot.sendTweet(text);
+	}
 	
 	private String randomTopicGenerator()
 	{

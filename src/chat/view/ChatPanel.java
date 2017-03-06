@@ -177,6 +177,14 @@ public class ChatPanel extends JPanel
 				
 			}
 		});
+		
+		sendTwitter.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+			baseController.useTwitter(chatField.getText());
+			}
+		});
 	}
 	
 }
