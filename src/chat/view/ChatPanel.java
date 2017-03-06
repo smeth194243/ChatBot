@@ -185,6 +185,9 @@ public class ChatPanel extends JPanel
 			baseController.useTwitter(chatField.getText());
 			}
 		});
+		
+		
+		
 	}
 	
 }
