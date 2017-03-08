@@ -8,6 +8,7 @@ import twitter4j.Status;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import twitter4j.Paging;
 
 public class CTECTwitter 
 {
@@ -29,7 +30,8 @@ public class CTECTwitter
 	{
 		try
 		{
-			twitterBot.updateStatus("I, Seth Morris, just tweeted from my Java Chatbot program 2017!" + " #APCSRocks @CTECNow Thanks @cscheerleader & @codyhenrichsen! @ChatbotCTEC");
+			twitterBot.updateStatus("@gaeblejones To join the genius posse, one must make a home-made twitter bot. :D");
+			//("I, Seth Morris, just tweeted from my Java Chatbot program 2017!" + " #APCSRocks @CTECNow Thanks @cscheerleader & @codyhenrichsen! @ChatbotCTEC");
 		}
 		catch(TwitterException tweetError)
 		{
@@ -49,6 +51,7 @@ public class CTECTwitter
 		Scanner boringWordScanner = new Scanner(this.getClass().getResourceAsStream("commonWords.txt"));
 		while(boringWordScanner.hasNextLine())
 		{
+			boringWordScanner.nextLine();
 			wordCount++;
 		}
 		boringWordScanner.close();
@@ -68,8 +71,13 @@ public class CTECTwitter
 	
 	public String getMostPopularWord(String username)
 	{
+		gatherTheTweets(username);
+		turnTweetsToWords();
 		removeBoringWords();
 		removeBlankWords();
+		
+		String information = "The tweetcount is " + allTheTweets.size() +
+				" and the word count after removal is " + tweetedWords.size();
 		
 		return " ";
 	}
@@ -100,6 +108,41 @@ public class CTECTwitter
 			{
 				tweetedWords.remove(index);
 				index --;
+			}
+		}
+	}
+	
+	private void gatherTheTweets(String user)
+	{
+		tweetedWords.clear();
+		allTheTweets.clear();
+		int pageCount = 1;
+		Paging statusPage = new Paging(1,200);
+		
+		while(pageCount <= 10)
+		{
+			try
+			{
+			allTheTweets.addAll(twitterBot.getUserTimeline(user, statusPage));
+			}
+			catch (TwitterException twitterError)
+			{
+				baseController.handleErrors(twitterError);
+			}
+			pageCount++;
+		}
+	}
+	
+	private void turnTweetsToWords()
+	{
+		for(Status currentTweet : allTheTweets)
+		{
+			String tweetText = currentTweet.getText();
+			String [] tweetWords = tweetText.split(" ");
+			
+			for(String word : tweetWords)
+			{
+				tweetedWords.add(word);
 			}
 		}
 	}
