@@ -113,6 +113,14 @@ public class ChatController
 		tweetBot.sendTweet(text);
 	}
 	
+	public void searchTwitter(String name)
+	{
+		String results = "The top word from user: " + name + "is: ";
+		results += tweetBot.getMostPopularWord(name);
+		
+		return results;
+	}
+	
 	private String randomTopicGenerator()
 	{
 		String randomTopic = "";

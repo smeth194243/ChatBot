@@ -11,16 +11,16 @@ import java.util.List;
 public class CTECTwitter 
 {
 	private ChatController baseController;
-	private List<Status> searchedTweets;
-	private List<String> ignoredWords;
+	private List<Status> allTheTweets;
+	private List<String> tweetedWords;
 	
 	private Twitter twitterBot;
 	
 	public CTECTwitter(ChatController baseController)
 	{
 		this.baseController = baseController;
-		searchedTweets = new ArrayList<Status>();
-		ignoredWords = new ArrayList<String>();
+		allTheTweets = new ArrayList<Status>();
+		tweetedWords = new ArrayList<String>();
 		twitterBot = TwitterFactory.getSingleton();
 	}
 	
@@ -28,8 +28,7 @@ public class CTECTwitter
 	{
 		try
 		{
-			twitterBot.updateStatus("I, Seth Morris, just tweeted from my Java Chatbot program 2017!"
-					+ " #APCSRocks @CTECNow Thanks @cscheerleader & @codyhenrichsen! @ChatbotCTEC");
+			twitterBot.updateStatus("I, Seth Morris, just tweeted from my Java Chatbot program 2017!" + " #APCSRocks @CTECNow Thanks @cscheerleader & @codyhenrichsen! @ChatbotCTEC");
 		}
 		catch(TwitterException tweetError)
 		{
@@ -41,18 +40,46 @@ public class CTECTwitter
 		}
 	}
 	
-	private void createIgnoredWordList()
-	{
-		
-	}
-	
-	private void collectTweets(String username)
-	{
-		
-	}
-	
-	public String getMostCommonWord()
+	private String [] createIgnoredWordArray()
 	{
 		return null;
+	}
+	
+	public String getMostPopularWord(String username)
+	{
+		removeBoringWords();
+		removeBlankWords();
+		
+		return " ";
+	}
+	
+	private void removeBoringWords()
+	{
+		String [] boringWords = createIgnoredWordsArray();
+		
+		for(int index = 0; index< tweetedWords.size(); index++)
+		{
+			for(int boringIndex = 0; boringIndex < boringWords.length; boringIndex++)
+			{
+				if(tweetedWords.get(index).equalsIgnoreCase(boringWords[boringIndex]))
+				{
+					tweetedWords.remove(index);
+					index --;
+					boringIndex = boringWords.length;
+				}
+			}
+		}
+	}
+	
+	private void removeBlankWords()
+	{
+		for(int index = 0; index < tweetedWords.size(); index++)
+		{
+			if(tweetedWords.get(index).trim().equals(" "))
+			{
+				tweetedWords.remove(index);
+				index --;
+			}
+		}
 	}
 }
