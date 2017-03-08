@@ -7,6 +7,7 @@ import twitter4j.TwitterException;
 import twitter4j.Status;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class CTECTwitter 
 {
@@ -40,8 +41,28 @@ public class CTECTwitter
 		}
 	}
 	
-	private String [] createIgnoredWordArray()
+	private String [] createIgnoredWordsArray()
 	{
+		String [] boringWords;
+		int wordCount = 0;
+		
+		Scanner boringWordScanner = new Scanner(this.getClass().getResourceAsStream("commonWords.txt"));
+		while(boringWordScanner.hasNextLine())
+		{
+			wordCount++;
+		}
+		boringWordScanner.close();
+
+		boringWords = new String [wordCount]; 
+		
+		boringWordScanner = new Scanner(this.getClass().getResourceAsStream("commonWords.txt"));
+		
+		for(int index = 0; index < boringWords.length; index++)
+		{
+			boringWords[index] = boringWordScanner.next();
+		}
+		boringWordScanner.close();
+		
 		return null;
 	}
 	
