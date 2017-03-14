@@ -204,4 +204,29 @@ public class CTECTwitter
 		}
 		return results;
 	}
+	
+	private String removePunctuation(String currentString)
+	{
+		String punctuation = ".,'?!:;\"(){}^[]<>-";
+		
+		String scrubbedString = "";
+		for(int i = 0; i < currentString.length(); i++){
+			if(punctuation.indexOf(currentString.charAt(i)) == -1){
+				scrubbedString += currentString.charAt(i);
+			}
+		}
+		return scrubbedString;
+	}
+	
+	private void removeMentions()
+	{
+		for(int index=0; index < tweetedWords.size(); index++)
+		{
+			if(tweetedWords.get(index).substring(0,1).equals("@"))
+			{
+				tweetedWords.remove(index);
+				index --;
+			}
+		}
+	}
 }
