@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import twitter4j.Paging;
+import twitter4j.Query;
+import twitter4j.QueryResult;
+import twitter4j.GeoLocation;
 
 public class CTECTwitter 
 {
@@ -176,5 +179,29 @@ public class CTECTwitter
 				tweetedWords.add(word);
 			}
 		}
+	}
+	
+	public String sampleInvestigation()
+	{
+		String results = " ";
+		
+		Query query = new Query("Mountain bike race");
+		query.setCount(100);
+		query.setGeoCode(new GeoLocation(40.587521, -111.869178),5, Query.KILOMETERS);
+		query.setSince("2016-1-1");
+		try
+		{
+			QueryResult result = twitterBot.search(query);
+			results += "Count : " + result.getTweets().size() + "\n";
+			for(Status tweet : result.getTweets())
+			{
+				results += "@" + tweet.getUser().getName() + ": " + tweet.getText() + "\n";
+			}
+		}
+		catch(TwitterException error)
+		{
+			error.printStackTrace();
+		}
+		return results;
 	}
 }
