@@ -185,10 +185,10 @@ public class CTECTwitter
 	{
 		String results = " ";
 		
-		Query query = new Query("Mountain bike race");
+		Query query = new Query("Computer Science");
 		query.setCount(100);
-		query.setGeoCode(new GeoLocation(40.587521, -111.869178),5, Query.KILOMETERS);
-		query.setSince("2016-1-1");
+		query.setGeoCode(new GeoLocation(40.587521, -111.869178),75, Query.KILOMETERS);
+		query.setSince("2016-01-01");
 		try
 		{
 			QueryResult result = twitterBot.search(query);
